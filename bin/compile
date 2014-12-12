@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# this pack is valid for apps with a hello.txt in the root
+ echo "i am in compile"
+ cat $1/hello.txt
+ 

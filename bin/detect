@@ -1,0 +1,24 @@
+# Reading documents here : http://docs.pivotal.io/pivotalcf/buildpacks/custom.html and https://devcenter.heroku.com/articles/buildpack-api
+# this script is used to figure if this buildpack is good to run the application
+
+#!/bin/sh
+
+# this pack is valid for apps with a hello.txt in the root
+#if [ -f $1/hello.txt ]; then
+ if ls *.txt 1 > /dev/null 2 > &1 ; then
+  echo "HelloFramework"
+  exit 0
+else
+  exit 1
+fi
+
+#for f in $1/*.txt; do
+
+    ## Check if the glob gets expanded to existing files.
+    ## If not, f here will be exactly the pattern above
+    ## and the exists test will evaluate to false.
+ #   [ -e "$f" ] && echo "files do exist" || echo "files do not exist"
+
+    ## This is all we needed to know, so we can break after the first iteration
+  #  break
+#done
